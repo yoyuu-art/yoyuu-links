@@ -1,0 +1,1124 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>YOYUU</title>
+    <meta name="description" content="YOYUU official links" />
+    <meta name="theme-color" content="#ffffff" />
+
+    <link rel="icon" sizes="32x32" href="img/icon2.jpg">
+    <link rel="icon" sizes="16x16" href="img/icon2.jpg">
+    <link rel="apple-touch-icon" sizes="180x180" href="img/icon2.jpg">
+
+
+    <style>
+        :root {
+            --bg: #ededed;
+            --card: #ffffff;
+            --text: #111111;
+            --subtext: #666666;
+            --line: #e9e9e9;
+            --accent: #ff7a00;
+            --accent-soft: #eeeeee;
+            --accent-deep: #ff00dd;
+            --yellow-bg: #ffe647;
+            --shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+            --radius-xl: 24px;
+            --radius-lg: 18px;
+            --radius-md: 14px;
+            --max: 760px;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            background: var(--bg);
+            color: var(--text);
+            font-family:
+                -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Segoe UI",
+                "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Yu Gothic", Meiryo, sans-serif;
+            -webkit-font-smoothing: antialiased;
+            text-rendering: optimizeLegibility;
+            line-height: 1.7;
+        }
+
+        img {
+            display: block;
+            max-width: 100%;
+            height: auto;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .wrap {
+            width: min(calc(100% - 24px), var(--max));
+            margin: 0 auto;
+            padding: 20px 0 56px;
+        }
+
+        .hero {
+            padding: 18px 4px 8px;
+            text-align: center;
+        }
+
+        /* .hero-image {
+            width: 112px;
+            height: 112px;
+            margin: 0 auto 18px;
+            border-radius: 999px;
+            overflow: hidden;
+            border: 1px solid var(--line);
+            box-shadow: var(--shadow);
+            background: #ffffff;
+        } */
+
+        /* .hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        } */
+
+        h1 {
+            margin: 0;
+            font-size: clamp(24px, 10vw, 68px);
+            line-height: 1.05;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+
+
+        }
+
+
+
+        .subcopy {
+            margin: 10px 0 0;
+            font-size: 14px;
+            color: var(--text);
+            letter-spacing: 0.08em;
+        }
+
+        .intro {
+            margin: 3px 0 0;
+            font-size: 12px;
+            color: var(--subtext);
+        }
+
+        .section {
+            margin-top: 22px;
+        }
+
+        .section-title {
+            margin: 0 0 10px;
+            padding: 0 2px;
+            font-size: 12px;
+            color: var(--subtext);
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+        }
+
+        .link-list {
+            display: grid;
+            gap: 12px;
+        }
+
+        .link-card {
+            display: grid;
+            grid-template-columns: 72px 1fr auto;
+            gap: 12px;
+            align-items: center;
+            padding: 11px;
+            background: var(--card);
+            border: 1px solid var(--line);
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            transition: transform 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease;
+        }
+
+        .link-card:hover,
+        .link-card:focus-visible {
+            transform: translateY(-1px);
+            border-color: rgba(255, 122, 0, 0.55);
+            box-shadow: 0 10px 24px rgba(0, 0, 0, 0.06);
+        }
+
+        .thumb {
+            width: 60px;
+            aspect-ratio: 1 / 1;
+            border-radius: 14px;
+            overflow: hidden;
+            background: #ffffff;
+            border: 1px solid #ffffff;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .thumb img {
+            width: 80%;
+            height: auto;
+            object-fit: contain;
+        }
+
+        .content {
+            min-width: 0;
+        }
+
+        .label-row {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-bottom: 4px;
+        }
+
+        .tag {
+            display: inline-flex;
+            align-items: center;
+            min-height: 22px;
+            padding: 0 8px;
+            border-radius: 999px;
+            background: var(--accent-soft);
+            color: var(--accent-deep);
+            font-size: 10px;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            white-space: nowrap;
+        }
+
+        .title {
+            margin: 0;
+            font-size: 16px;
+            line-height: 1.4;
+            font-weight: 650;
+            color: var(--text);
+        }
+
+        .desc {
+            margin: 4px 0 0;
+            font-size: 12px;
+            color: var(--subtext);
+            line-height: 1.55;
+        }
+
+        .desc .en {
+            display: block;
+            margin-top: 2px;
+            color: #808080;
+        }
+
+        .arrow {
+            width: 34px;
+            height: 34px;
+            border-radius: 999px;
+            display: grid;
+            place-items: center;
+            border: 1px solid rgba(255, 122, 0, 0.22);
+            color: var(--accent-deep);
+            background: #fff;
+            font-size: 16px;
+            flex-shrink: 0;
+        }
+
+        .yellow-area {
+            margin-top: 24px;
+            padding: 24px 0 32px;
+            background: var(--yellow-bg);
+        }
+
+        .mini-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 12px;
+        }
+
+        .mini-card {
+            display: block;
+            padding: 14px;
+            border-radius: 18px;
+            background: #fff;
+            border: 1px solid var(--line);
+            box-shadow: var(--shadow);
+            transition: transform 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease;
+        }
+
+        .mini-card:hover,
+        .mini-card:focus-visible {
+            transform: translateY(-1px);
+            border-color: rgba(255, 122, 0, 0.55);
+            box-shadow: 0 10px 24px rgba(0, 0, 0, 0.06);
+        }
+
+        .mini-label {
+            display: inline-block;
+            margin-bottom: 8px;
+            font-size: 10px;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--accent-deep);
+        }
+
+        .mini-title {
+            margin: 0;
+            font-size: 15px;
+            line-height: 1.45;
+            font-weight: 650;
+        }
+
+        .mini-desc {
+            margin: 6px 0 0;
+            font-size: 12px;
+            color: var(--subtext);
+            line-height: 1.55;
+        }
+
+        .contact-box {
+            margin-top: 22px;
+            padding: 16px;
+            border: 1px solid var(--line);
+            border-radius: 22px;
+            background: #fff;
+            box-shadow: var(--shadow);
+        }
+
+        .contact-box h2 {
+            margin: 0 0 8px;
+            font-size: 18px;
+            line-height: 1.4;
+            font-weight: 650;
+        }
+
+        .contact-box p {
+            margin: 0;
+            font-size: 13px;
+            color: var(--subtext);
+            line-height: 1.7;
+        }
+
+        .contact-actions {
+            display: grid;
+            gap: 12px;
+            margin-top: 14px;
+        }
+
+        .cta {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            padding: 14px 15px;
+            border-radius: 18px;
+            border: 1px solid var(--line);
+            background: #fff;
+            transition: transform 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease;
+        }
+
+        .cta:hover,
+        .cta:focus-visible {
+            transform: translateY(-1px);
+            border-color: rgba(255, 122, 0, 0.55);
+            box-shadow: 0 10px 24px rgba(0, 0, 0, 0.06);
+        }
+
+        .cta-title {
+            margin: 0;
+            font-size: 15px;
+            line-height: 1.4;
+            font-weight: 650;
+        }
+
+        .cta-desc {
+            margin: 4px 0 0;
+            font-size: 12px;
+            color: var(--subtext);
+            line-height: 1.55;
+            word-break: break-word;
+        }
+
+        .footer {
+            margin-top: 18px;
+            text-align: center;
+            font-size: 12px;
+            color: #888888;
+        }
+
+        #toTop {
+            position: fixed;
+            right: 16px;
+            bottom: 20px;
+            width: 58px;
+            height: 58px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0;
+            border: 1px solid rgba(255, 122, 0, 0.32);
+            border-radius: 999px;
+            background: #ffffff;
+            box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
+            cursor: pointer;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition:
+                opacity 0.24s ease,
+                transform 0.24s ease,
+                visibility 0.24s ease,
+                box-shadow 0.18s ease,
+                border-color 0.18s ease;
+        }
+
+        #toTop.is-visible {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        #toTop:hover,
+        #toTop:focus-visible {
+            border-color: rgba(255, 122, 0, 0.58);
+            box-shadow: 0 14px 28px rgba(0, 0, 0, 0.14);
+        }
+
+        #toTop img {
+            width: 70%;
+            height: 50%;
+            object-fit: contain;
+            pointer-events: none;
+        }
+
+        @media (min-width: 720px) {
+            .wrap {
+                padding-top: 28px;
+            }
+
+            .contact-actions {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 560px) {
+            .wrap {
+                width: min(calc(100% - 18px), var(--max));
+            }
+
+            .hero-image {
+                width: 96px;
+                height: 96px;
+            }
+
+            .link-card {
+                grid-template-columns: 64px 1fr auto;
+                gap: 10px;
+                padding: 10px;
+                border-radius: 18px;
+            }
+
+            .thumb {
+                width: 55px;
+            }
+
+            .title {
+                font-size: 14px;
+            }
+
+            .desc {
+                font-size: 10px;
+            }
+
+            .en {
+                font-size: 9px;
+            }
+
+            .mini-grid {
+                gap: 10px;
+            }
+
+            .mini-card {
+                padding: 12px;
+            }
+
+            #toTop {
+                right: 12px;
+                bottom: 16px;
+                width: 54px;
+                height: 54px;
+            }
+
+            .tag {
+                font-size: 8px;
+            }
+        }
+
+
+
+        .center-image {
+            display: flex;
+            justify-content: center;
+            margin: 24px 0 0;
+        }
+
+        .center-image img {
+            max-width: 140px;
+            opacity: 0.9;
+        }
+
+        /* お問い合わせアイコン */
+        .contact-title {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .contact-title img {
+            width: 20px;
+            height: 20px;
+        }
+
+        .center-image img {
+            max-width: 100px;
+            /* opacity: 0.8; */
+            border: solid 1px W;
+        }
+
+        #toTop {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 0px;
+        }
+
+        #toTop img {
+            width: 26px;
+        }
+
+        .toTop-text {
+            font-size: 8px;
+            letter-spacing: 0.08em;
+            color: #555;
+        }
+
+        /* 画像動かす */
+
+        .center-image-1 img {
+            animation: floatRotate 4s ease-in-out infinite;
+        }
+
+        @keyframes floatRotate {
+            0% {
+                transform: rotate(-3deg) translateY(0px);
+            }
+
+            50% {
+                transform: rotate(3deg) translateY(-6px);
+            }
+
+            100% {
+                transform: rotate(-3deg) translateY(0px);
+            }
+        }
+
+        .center-image-2 img {
+            animation: floatSide 6s ease-in-out infinite;
+        }
+
+        @keyframes floatSide {
+            0% {
+                transform: translateX(-8px) translateY(0px);
+            }
+
+            50% {
+                transform: translateX(8px) translateY(-4px);
+            }
+
+            100% {
+                transform: translateX(-8px) translateY(0px);
+            }
+        }
+
+        /* NEWS用 */
+        .news-window {
+            margin-top: 20px;
+            padding: 16px;
+            border: 1px solid var(--line);
+            border-radius: 22px;
+            background: #fff;
+            box-shadow: var(--shadow);
+        }
+
+        .news-window-head {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+
+        .news-window-head h2 {
+            margin: 0;
+            font-size: 18px;
+            line-height: 1.4;
+            font-weight: 650;
+        }
+
+        .news-window-head a {
+            font-size: 12px;
+            color: var(--subtext);
+            text-decoration: none;
+            white-space: nowrap;
+        }
+
+        .news-window-head a:hover {
+            opacity: 0.7;
+        }
+
+        .news-list {
+            display: grid;
+            gap: 0;
+        }
+
+        .news-item {
+            display: block;
+            padding: 12px 0;
+            border-top: 1px solid #f1f1f1;
+            transition: opacity 0.18s ease;
+        }
+
+        .news-item:first-child {
+            padding-top: 0;
+            border-top: none;
+        }
+
+        .news-item:hover,
+        .news-item:focus-visible {
+            opacity: 0.72;
+        }
+
+        .news-date {
+            margin: 0 0 4px;
+            font-size: 11px;
+            color: var(--subtext);
+            letter-spacing: 0.06em;
+        }
+
+        .news-title {
+            margin: 0;
+            font-size: 14px;
+            line-height: 1.5;
+            font-weight: 650;
+            color: var(--text);
+        }
+
+        .news-title {
+            text-decoration: underline;
+            text-decoration-style: dotted;
+            text-decoration-thickness: 2px;
+            text-underline-offset: 4px;
+            text-decoration-color: #ff7a00;
+        }
+
+        .news-item:hover .news-title {
+            text-decoration-color: #0051ff;
+        }
+
+        .news-title::after {
+            content: " ↗";
+            font-size: 10px;
+            color: #fa27e9;
+            margin-left: 4px;
+        }
+
+        .news-text {
+            margin: 4px 0 0;
+            font-size: 12px;
+            color: var(--subtext);
+            line-height: 1.6;
+        }
+
+        .news-empty {
+            margin: 0;
+            font-size: 12px;
+            color: var(--subtext);
+            line-height: 1.6;
+        }
+
+        /* LINE誘導 */
+        .line-cta {
+            /* display: flex; */
+            justify-content: center;
+            /* margin: 12px 0 20px; */
+            /* margin: 0 auto; */
+
+
+        }
+
+        .line-cta a {
+            display: inline-block;
+            padding: 10px 16px;
+            border-radius: 999px;
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            background: #fff;
+            font-size: 13px;
+            color: #60b467;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            background: #ffffff;
+            font-weight: 500;
+        }
+
+        .line-cta a:hover {
+            transform: translateY(-1px);
+            border-color: #ff7a00;
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
+        }
+
+        /* SNSicon */
+        .sns-links {
+            display: flex;
+            justify-content: center;
+            gap: 14px;
+            margin-top: 14px;
+        }
+
+        .sns-links img {
+            width: 18px;
+            height: 18px;
+            object-fit: contain;
+            opacity: 0.3;
+            transition: all 0.2s ease;
+            /* fill: #000000; */
+        }
+
+        .sns-links a:hover img {
+            opacity: 1;
+            transform: translateY(-2px);
+            /* fill: #ff7a00; */
+        }
+    </style>
+</head>
+
+<body>
+
+
+
+
+
+    <main class="wrap">
+        <section class="hero">
+            <div class="center-image center-image-1">
+                <img src="img/001.png?auto=format&fit=crop&w=600&q=80" alt="YOYUUアイコン">
+            </div>
+            <h1>YOYUU</h1>
+            <p class="subcopy">心に、よゆうを。</p>
+            <p class="intro">いろんな絵を描いています</p>
+
+            <div class="sns-links">
+                <a href="https://www.instagram.com/yoyuu_art" target="_blank">
+                    <img src="img/instagram.svg" alt="Instagram">
+                </a>
+                <a href="https://www.tiktok.com/@yoyuu_art" target="_blank">
+                    <img src="img/tiktok.svg" alt="TikTok">
+                </a>
+                <a href="https://youtube.com/@yoyuu_art" target="_blank">
+                    <img src="img/youtubeshorts.svg" alt="YouTube">
+                </a>
+                <a href="https://www.threads.com/@yoyuu_art" target="_blank">
+                    <img src="img/threads.svg" alt="Threads">
+                </a>
+                <a href="https://line.me/R/ti/p/@316pwugp" target="_blank">
+                    <img src="img/line.svg" alt="line">
+                </a>
+            </div>
+
+
+        </section>
+
+        <section class="section" aria-labelledby="main-links-title">
+            <h2 class="section-title" id="main-links-title">Main Links</h2>
+
+            <div class="link-list">
+                <a class="link-card" href="https://yoyuu-official.stores.jp" target="_blank" rel="noopener noreferrer"
+                    aria-label="STORES イラストショップ">
+                    <div class="thumb">
+                        <img src="img/011.png?auto=format&fit=crop&w=400&q=80" alt="STORES" loading="lazy" />
+                    </div>
+                    <div class="content">
+                        <div class="label-row">
+                            <span class="tag">Shop</span>
+                        </div>
+                        <p class="title">STORES イラストショップ</p>
+                        <p class="desc">
+                            コンビニでも印刷できるイラストを販売
+                            <!-- <span class="en">Illustrations, original art. Domestic shipping only for now.</span> -->
+                        </p>
+                    </div>
+                    <div class="arrow" aria-hidden="true">↗</div>
+                </a>
+                <a class="link-card" href="https://yoyuu-official.stores.jp/?category_id=69742d29c49f18a5f41cb74d"
+                    target="_blank" rel="noopener noreferrer" aria-label="ORDER">
+                    <div class="thumb">
+                        <img src="img/001 (3).png?auto=format&fit=crop&w=400&q=80" alt="ORDER" loading="lazy" />
+                    </div>
+                    <div class="content">
+                        <div class="label-row">
+                            <span class="tag">Shop</span><span class="tag">Order</span>
+                        </div>
+                        <p class="title">STORES オーダーメニュー</p>
+                        <p class="desc">
+                            オーダーの一例です。下記のリンクのLINEまたはSNSのDMからご相談ください。
+                            <!-- <span class="en">Limited custom orders available occasionally.Domestic shipping only for
+                                now.</span> -->
+                        </p>
+                    </div>
+                    <div class="arrow" aria-hidden="true">↗</div>
+                </a>
+                <div class="line-cta">
+                    <a href="https://line.me/R/ti/p/@316pwugp" target="_blank" rel="noopener noreferrer">
+                        ――　公式LINEからご相談　〉〉
+                    </a>
+                </div>
+                <a class="link-card" href="https://store.line.me/stickershop/author/1752248/ja" target="_blank"
+                    rel="noopener noreferrer" aria-label="LINEスタンプと絵文字一覧">
+                    <div class="thumb">
+                        <img src="img/036.png?auto=format&fit=crop&w=400&q=80" alt="LINE stickers" loading="lazy" />
+                    </div>
+                    <div class="content">
+                        <div class="label-row">
+                            <span class="tag">LINE stickers & Emojis</span>
+                        </div>
+                        <p class="title">LINEスタンプ・絵文字一覧</p>
+                        <p class="desc">
+                            スタンプと絵文字をまとめて見る
+                            <span class="en">Browse all LINE stickers and emojis.</span>
+                        </p>
+                    </div>
+                    <div class="arrow" aria-hidden="true">↗</div>
+                </a>
+
+                <a class="link-card" href="https://store.line.me/themeshop/author/3048079/ja" target="_blank"
+                    rel="noopener noreferrer" aria-label="LINE着せ替え一覧">
+                    <div class="thumb">
+                        <img src="img/038 (2).png?auto=format&fit=crop&w=400&q=80" alt="LINE themes" loading="lazy" />
+                    </div>
+                    <div class="content">
+                        <div class="label-row">
+                            <span class="tag">LINE Theme</span>
+                        </div>
+                        <p class="title">LINE着せ替え一覧</p>
+                        <p class="desc">
+                            着せ替えをまとめて見る
+                            <span class="en">Browse all LINE themes.</span>
+                        </p>
+                    </div>
+                    <div class="arrow" aria-hidden="true">↗</div>
+                </a>
+
+                <a class="link-card" href="https://suzuri.jp/YOYUU" target="_blank" rel="noopener noreferrer"
+                    aria-label="SUZURI">
+                    <div class="thumb">
+                        <img src="img/028.png?auto=format&fit=crop&w=400&q=80" alt="SUZURI" loading="lazy" />
+                    </div>
+                    <div class="content">
+                        <div class="label-row">
+                            <span class="tag">Goods</span>
+                        </div>
+                        <p class="title">SUZURI</p>
+                        <p class="desc">
+                            グッズ・アイテムを見る
+                            <span class="en">Shop goods and printed items.</span>
+                        </p>
+                    </div>
+                    <div class="arrow" aria-hidden="true">↗</div>
+                </a>
+
+                <!-- <a class="link-card" href="https://note.com/yoyuu_art" target="_blank" rel="noopener noreferrer"
+                    aria-label="note">
+                    <div class="thumb">
+                        <img src="img/001 (2).png?auto=format&fit=crop&w=400&q=80" alt="note" loading="lazy" />
+                    </div>
+                    <div class="content">
+                        <div class="label-row">
+                            <span class="tag">note</span>
+                        </div>
+                        <p class="title">note</p>
+                        <p class="desc">
+                            お知らせや記録
+                            <span class="en">Notes, updates, and stories.</span>
+                        </p>
+                    </div>
+                    <div class="arrow" aria-hidden="true">↗</div>
+                </a> -->
+
+
+            </div>
+        </section>
+
+        <section class="news-window" aria-labelledby="news-window-title">
+            <div class="news-window-head">
+                <h2 id="news-window-title">NEWS</h2>
+                <a href="news.html" target="_blank" rel="noopener noreferrer">All news ↗</a>
+            </div>
+
+            <div id="news-list" class="news-list">
+                <p class="news-empty">Loading updates...</p>
+            </div>
+        </section>
+
+
+    </main>
+
+
+
+    <div class="yellow-area">
+
+        <div class="center-image center-image-1">
+            <img src="img/28.png" alt="ゴロゴロ猫">
+        </div>
+
+
+        <main class="wrap">
+            <section class="section" aria-labelledby="social-title">
+                <h2 class="section-title" id="social-title">Social</h2>
+
+                <div class="mini-grid">
+                    <a class="mini-card" href="https://www.instagram.com/yoyuu_art" target="_blank"
+                        rel="noopener noreferrer" aria-label="Instagram">
+                        <div class="mini-label">SNS</div>
+                        <p class="mini-title">Instagram</p>
+                        <p class="mini-desc">作品や最新投稿・リール動画</p>
+                    </a>
+
+                    <a class="mini-card" href="https://youtube.com/@yoyuu_art" target="_blank" rel="noopener noreferrer"
+                        aria-label="YouTube">
+                        <div class="mini-label">SNS</div>
+                        <p class="mini-title">YouTube</p>
+                        <p class="mini-desc">ショート動画</p>
+                    </a>
+
+                    <a class="mini-card" href="https://www.tiktok.com/@yoyuu_art" target="_blank"
+                        rel="noopener noreferrer" aria-label="TikTok">
+                        <div class="mini-label">SNS</div>
+                        <p class="mini-title">TikTok</p>
+                        <p class="mini-desc">ショート動画</p>
+                    </a>
+
+                    <a class="mini-card" href="https://www.threads.com/@yoyuu_art" target="_blank"
+                        rel="noopener noreferrer" aria-label="Threads">
+                        <div class="mini-label">SNS</div>
+                        <p class="mini-title">Threads</p>
+                        <p class="mini-desc">気軽に発信</p>
+                    </a>
+                </div>
+            </section>
+
+            <style>
+                .wave-line {
+                    display: flex;
+                    justify-content: center;
+                    margin: 32px 0 8px;
+                    stroke: rgba(255, 0, 225, 0.7);
+                }
+
+                .wave-line svg {
+                    width: 500px;
+                    max-width: 60%;
+                    height: 40px;
+
+                }
+
+                .wave-line svg {
+                    animation: waveMove 6s ease-in-out infinite;
+                }
+
+                @keyframes waveMove {
+                    0% {
+                        transform: translateX(0);
+                    }
+
+                    50% {
+                        transform: translateX(10px);
+                    }
+
+                    100% {
+                        transform: translateX(0);
+                    }
+                }
+            </style>
+            <div class="wave-line">
+                <svg viewBox="0 0 500 40">
+                    <path d="M0 20 Q25 0 50 20 T100 20 T150 20 T200 20 T250 20 T300 20 T350 20 T400 20 T450 20 T500 20"
+                        fill="none" stroke-width="11" stroke-linecap="round" />
+                </svg>
+            </div>
+
+
+            <section class="contact-box" aria-labelledby="contact-title">
+                <h2 id="contact-title" class="contact-title">
+                    <img src="img/039.png" alt="">
+                    お問い合わせ / Contact
+                </h2>
+                <p>
+                    オーダーのご相談や商品のお問い合わせは各SNSのDMやLINEから☆<br />
+                    お仕事のご相談はメールでも承っております。
+                </p>
+
+                <div class="contact-actions">
+                    <a class="cta" href="https://line.me/R/ti/p/@316pwugp" target="_blank" rel="noopener noreferrer"
+                        aria-label="LINEで問い合わせ">
+                        <div>
+                            <p class="cta-title">LINEで問い合わせ</p>
+                            <p class="cta-desc">オーダー相談・商品について</p>
+                        </div>
+                        <div class="arrow" aria-hidden="true">↗</div>
+                    </a>
+
+                    <a class="cta" href="mailto:yoyuu.official@gmail.com" aria-label="メールで仕事相談">
+                        <div>
+                            <p class="cta-title">メールでお仕事相談</p>
+                            <p class="cta-desc">yoyuu.official@gmail.com</p>
+                        </div>
+                        <div class="arrow" aria-hidden="true">↗</div>
+                    </a>
+                </div>
+            </section>
+
+            <!-- ★ここ追加 -->
+            <div class="center-image center-image-2">
+                <img src="img/002.png" alt="">
+            </div>
+
+            <footer class="footer">
+                © YOYUU
+            </footer>
+        </main>
+    </div>
+
+    <button id="toTop">
+        <img src="img/040.png" alt="top">
+        <span class="toTop-text">TOP</span>
+    </button>
+
+    <script>
+        const toTopButton = document.getElementById("toTop");
+
+        window.addEventListener("scroll", () => {
+            if (window.scrollY > 320) {
+                toTopButton.classList.add("is-visible");
+            } else {
+                toTopButton.classList.remove("is-visible");
+            }
+        });
+
+        toTopButton.addEventListener("click", () => {
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+        });
+
+        // NEWS用
+
+        const SHEET_CSV_URL = "https://docs.google.com/spreadsheets/d/1RYo2Wf_bozF6laFHHtNEdJCZnl5IWYRMdZYqeSY6tXM/export?format=csv&gid=0";
+
+        function parseCSVLine(line) {
+            const result = [];
+            let current = "";
+            let inQuotes = false;
+
+            for (let i = 0; i < line.length; i++) {
+                const char = line[i];
+                const next = line[i + 1];
+
+                if (char === '"' && inQuotes && next === '"') {
+                    current += '"';
+                    i++;
+                } else if (char === '"') {
+                    inQuotes = !inQuotes;
+                } else if (char === "," && !inQuotes) {
+                    result.push(current);
+                    current = "";
+                } else {
+                    current += char;
+                }
+            }
+
+            result.push(current);
+            return result;
+        }
+
+        function csvToObjects(csvText) {
+            const lines = csvText.trim().split(/\r?\n/);
+            if (lines.length < 2) return [];
+
+            const headers = parseCSVLine(lines[0]).map(h => h.trim());
+
+            return lines.slice(1).map(line => {
+                const values = parseCSVLine(line);
+                const obj = {};
+                headers.forEach((header, index) => {
+                    obj[header] = (values[index] || "").trim();
+                });
+                return obj;
+            });
+        }
+
+        fetch(SHEET_CSV_URL)
+            .then(response => response.text())
+            .then(csvText => {
+                const items = csvToObjects(csvText);
+                const newsList = document.getElementById("news-list");
+
+                const visibleItems = items
+                    .filter(item => item.date || item.title || item.text || item.url)
+                    .slice(0, 2);
+
+                if (!visibleItems.length) {
+                    newsList.innerHTML = `<p class="news-empty">Latest updates coming soon</p>`;
+                    return;
+                }
+
+                newsList.innerHTML = visibleItems.map(item => {
+                    const content = `
+          <p class="news-date">${item.date || ""}</p>
+          <p class="news-title">${item.title || ""}</p>
+          <p class="news-text">${item.text || ""}</p>
+        `;
+
+                    if (item.url) {
+                        return `
+            <a class="news-item" href="${item.url}" target="_blank" rel="noopener noreferrer">
+              ${content}
+            </a>
+          `;
+                    }
+
+                    return `
+          <div class="news-item">
+            ${content}
+          </div>
+        `;
+                }).join("");
+            })
+            .catch(() => {
+                const newsList = document.getElementById("news-list");
+                newsList.innerHTML = `<p class="news-empty">Latest updates coming soon</p>`;
+            });
+
+    </script>
+</body>
+
+</html>
