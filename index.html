@@ -12,18 +12,18 @@
     <link rel="icon" sizes="16x16" href="img/icon2.jpg">
     <link rel="apple-touch-icon" sizes="180x180" href="img/icon2.jpg">
 
-
     <style>
         :root {
-            --bg: #fdfbf8;
+            --bg: #ffffff;
+            --pink-bg: #f6dee9;
             --card: #ffffff;
             --text: #111111;
             --subtext: #666666;
             --line: #e9e9e9;
             --accent: #ff7a00;
             --accent-soft: #eeeeee;
-            --accent-deep: #ff00dd;
-            --yellow-bg: #ffe647;
+            --accent-deep: #6fc2e6;
+            --yellow-bg: #feeb6f;
             --shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
             --radius-xl: 24px;
             --radius-lg: 18px;
@@ -64,31 +64,29 @@
 
         .wrap {
             width: min(calc(100% - 24px), var(--max));
+            max-width: 90%;
             margin: 0 auto;
-            padding: 20px 0 56px;
+        }
+
+        .white-area {
+            background: #ffffff;
+            padding: 20px 0 18px;
+        }
+
+        .pink-area {
+            background: var(--pink-bg);
+            padding: 22px 0 24px;
+        }
+
+        .yellow-area {
+            padding: 24px 0 32px;
+            background: var(--yellow-bg);
         }
 
         .hero {
-            padding: 18px 4px 8px;
+            padding: 0 4px 0;
             text-align: center;
         }
-
-        /* .hero-image {
-            width: 112px;
-            height: 112px;
-            margin: 0 auto 18px;
-            border-radius: 999px;
-            overflow: hidden;
-            border: 1px solid var(--line);
-            box-shadow: var(--shadow);
-            background: #ffffff;
-        } */
-
-        /* .hero-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        } */
 
         h1 {
             margin: 0;
@@ -96,11 +94,7 @@
             line-height: 1.05;
             font-weight: 700;
             letter-spacing: 0.08em;
-
-
         }
-
-
 
         .subcopy {
             margin: 10px 0 0;
@@ -116,14 +110,14 @@
         }
 
         .section {
-            margin-top: 22px;
+            margin-top: 0;
         }
 
         .section-title {
             margin: 0 0 10px;
             padding: 0 2px;
             font-size: 12px;
-            color: var(--subtext);
+            color: #e32424;
             letter-spacing: 0.14em;
             text-transform: uppercase;
         }
@@ -141,7 +135,7 @@
             padding: 11px;
             background: var(--card);
             border: 1px solid var(--line);
-            border-radius: 20px;
+            border-radius: 40px;
             box-shadow: var(--shadow);
             transition: transform 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease;
         }
@@ -160,7 +154,6 @@
             overflow: hidden;
             background: #ffffff;
             border: 1px solid #ffffff;
-
             display: flex;
             align-items: center;
             justify-content: center;
@@ -196,6 +189,7 @@
             letter-spacing: 0.06em;
             text-transform: uppercase;
             white-space: nowrap;
+            display: none;
         }
 
         .title {
@@ -230,12 +224,6 @@
             background: #fff;
             font-size: 16px;
             flex-shrink: 0;
-        }
-
-        .yellow-area {
-            margin-top: 24px;
-            padding: 24px 0 32px;
-            background: var(--yellow-bg);
         }
 
         .mini-grid {
@@ -400,71 +388,6 @@
             pointer-events: none;
         }
 
-        @media (min-width: 720px) {
-            .wrap {
-                padding-top: 28px;
-            }
-
-            .contact-actions {
-                grid-template-columns: 1fr 1fr;
-            }
-        }
-
-        @media (max-width: 560px) {
-            .wrap {
-                width: min(calc(100% - 18px), var(--max));
-            }
-
-            .hero-image {
-                width: 96px;
-                height: 96px;
-            }
-
-            .link-card {
-                grid-template-columns: 64px 1fr auto;
-                gap: 10px;
-                padding: 10px;
-                border-radius: 18px;
-            }
-
-            .thumb {
-                width: 55px;
-            }
-
-            .title {
-                font-size: 14px;
-            }
-
-            .desc {
-                font-size: 10px;
-            }
-
-            .en {
-                font-size: 9px;
-            }
-
-            .mini-grid {
-                gap: 10px;
-            }
-
-            .mini-card {
-                padding: 12px;
-            }
-
-            #toTop {
-                right: 12px;
-                bottom: 16px;
-                width: 54px;
-                height: 54px;
-            }
-
-            .tag {
-                font-size: 8px;
-            }
-        }
-
-
-
         .center-image {
             display: flex;
             justify-content: center;
@@ -472,11 +395,10 @@
         }
 
         .center-image img {
-            max-width: 140px;
-            opacity: 0.9;
+            max-width: 100px;
+            border: solid 1px transparent;
         }
 
-        /* お問い合わせアイコン */
         .contact-title {
             display: flex;
             align-items: center;
@@ -486,12 +408,6 @@
         .contact-title img {
             width: 20px;
             height: 20px;
-        }
-
-        .center-image img {
-            max-width: 100px;
-            /* opacity: 0.8; */
-            border: solid 1px W;
         }
 
         #toTop {
@@ -511,8 +427,6 @@
             letter-spacing: 0.08em;
             color: #555;
         }
-
-        /* 画像動かす */
 
         .center-image-1 img {
             animation: floatRotate 4s ease-in-out infinite;
@@ -550,9 +464,8 @@
             }
         }
 
-        /* NEWS用 */
         .news-window {
-            margin-top: 20px;
+            margin-top: 16px;
             padding: 16px;
             border: 1px solid var(--line);
             border-radius: 22px;
@@ -621,9 +534,6 @@
             line-height: 1.5;
             font-weight: 650;
             color: var(--text);
-        }
-
-        .news-title {
             text-decoration: underline;
             text-decoration-style: dotted;
             text-decoration-thickness: 2px;
@@ -666,14 +576,8 @@
             border-radius: 12px;
         }
 
-        /* LINE誘導 */
         .line-cta {
-            /* display: flex; */
             justify-content: center;
-            /* margin: 12px 0 20px; */
-            /* margin: 0 auto; */
-
-
         }
 
         .line-cta a {
@@ -681,12 +585,11 @@
             padding: 10px 16px;
             border-radius: 999px;
             border: 1px solid rgba(0, 0, 0, 0.08);
-            background: #fff;
+            background: #f14c97;
             font-size: 13px;
-            color: #60b467;
+            color: #ffffff;
             text-decoration: none;
             transition: all 0.2s ease;
-            background: #ffffff;
             font-weight: 500;
         }
 
@@ -696,7 +599,6 @@
             box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
         }
 
-        /* SNSicon */
         .sns-links {
             display: flex;
             justify-content: center;
@@ -710,195 +612,246 @@
             object-fit: contain;
             opacity: 0.3;
             transition: all 0.2s ease;
-            /* fill: #000000; */
         }
 
         .sns-links a:hover img {
             opacity: 1;
             transform: translateY(-2px);
-            /* fill: #ff7a00; */
+        }
+
+        .wave-line {
+            display: flex;
+            justify-content: center;
+            margin: 32px 0 8px;
+            stroke: rgba(255, 0, 225, 0.7);
+        }
+
+        .wave-line svg {
+            width: 500px;
+            max-width: 60%;
+            height: 40px;
+            animation: waveMove 6s ease-in-out infinite;
+        }
+
+        @keyframes waveMove {
+            0% {
+                transform: translateX(0);
+            }
+
+            50% {
+                transform: translateX(10px);
+            }
+
+            100% {
+                transform: translateX(0);
+            }
+        }
+
+        @media (min-width: 720px) {
+            .contact-actions {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 560px) {
+            .wrap {
+                width: min(calc(100% - 18px), var(--max));
+            }
+
+            .link-card {
+                grid-template-columns: 64px 1fr auto;
+                gap: 10px;
+                padding: 10px;
+                /* border-radius: 18px; */
+            }
+
+            .thumb {
+                width: 55px;
+            }
+
+            .title {
+                font-size: 14px;
+            }
+
+            .desc {
+                font-size: 10px;
+            }
+
+            .en {
+                font-size: 9px;
+            }
+
+            .mini-grid {
+                gap: 10px;
+            }
+
+            .mini-card {
+                padding: 12px;
+            }
+
+            #toTop {
+                right: 12px;
+                bottom: 16px;
+                width: 54px;
+                height: 54px;
+            }
+
+            .tag {
+                font-size: 8px;
+            }
         }
     </style>
 </head>
 
 <body>
 
+    <div class="white-area">
+        <main class="wrap">
+            <section class="hero">
+                <div class="center-image center-image-1">
+                    <img src="img/001.png?auto=format&fit=crop&w=600&q=80" alt="YOYUUアイコン">
+                </div>
+                <h1>YOYUU</h1>
+                <p class="subcopy">心に、よゆうを。</p>
+                <p class="intro">いろんな絵を描いています</p>
 
-
-
-
-    <main class="wrap">
-        <section class="hero">
-            <div class="center-image center-image-1">
-                <img src="img/001.png?auto=format&fit=crop&w=600&q=80" alt="YOYUUアイコン">
-            </div>
-            <h1>YOYUU</h1>
-            <p class="subcopy">心に、よゆうを。</p>
-            <p class="intro">いろんな絵を描いています</p>
-
-            <div class="sns-links">
-                <a href="https://www.instagram.com/yoyuu_art" target="_blank">
-                    <img src="img/instagram.svg" alt="Instagram">
-                </a>
-                <a href="https://www.tiktok.com/@yoyuu_art" target="_blank">
-                    <img src="img/tiktok.svg" alt="TikTok">
-                </a>
-                <a href="https://youtube.com/@yoyuu_art" target="_blank">
-                    <img src="img/youtubeshorts.svg" alt="YouTube">
-                </a>
-                <a href="https://www.threads.com/@yoyuu_art" target="_blank">
-                    <img src="img/threads.svg" alt="Threads">
-                </a>
-                <a href="https://line.me/R/ti/p/@316pwugp" target="_blank">
-                    <img src="img/line.svg" alt="line">
-                </a>
-            </div>
-
-
-        </section>
-
-        <section class="section" aria-labelledby="main-links-title">
-            <h2 class="section-title" id="main-links-title">Main Links</h2>
-
-            <div class="link-list">
-                <a class="link-card" href="https://yoyuu-official.stores.jp" target="_blank" rel="noopener noreferrer"
-                    aria-label="STORES イラストショップ">
-                    <div class="thumb">
-                        <img src="img/011.png?auto=format&fit=crop&w=400&q=80" alt="STORES" loading="lazy" />
-                    </div>
-                    <div class="content">
-                        <div class="label-row">
-                            <span class="tag">Shop</span>
-                        </div>
-                        <p class="title">STORES イラストショップ</p>
-                        <p class="desc">
-                            コンビニでも印刷できるイラストを販売
-                            <!-- <span class="en">Illustrations, original art. Domestic shipping only for now.</span> -->
-                        </p>
-                    </div>
-                    <div class="arrow" aria-hidden="true">↗</div>
-                </a>
-                <a class="link-card" href="https://yoyuu-official.stores.jp/?category_id=69742d29c49f18a5f41cb74d"
-                    target="_blank" rel="noopener noreferrer" aria-label="ORDER">
-                    <div class="thumb">
-                        <img src="img/001 (3).png?auto=format&fit=crop&w=400&q=80" alt="ORDER" loading="lazy" />
-                    </div>
-                    <div class="content">
-                        <div class="label-row">
-                            <span class="tag">Shop</span><span class="tag">Order</span>
-                        </div>
-                        <p class="title">STORES オーダーメニュー</p>
-                        <p class="desc">
-                            オーダーの一例です。下記のリンクのLINEまたはSNSのDMからご相談ください。
-                            <!-- <span class="en">Limited custom orders available occasionally.Domestic shipping only for
-                                now.</span> -->
-                        </p>
-                    </div>
-                    <div class="arrow" aria-hidden="true">↗</div>
-                </a>
-                <div class="line-cta">
-                    <a href="https://line.me/R/ti/p/@316pwugp" target="_blank" rel="noopener noreferrer">
-                        〉〉　公式LINEからご相談
+                <div class="sns-links">
+                    <a href="https://www.instagram.com/yoyuu_art" target="_blank">
+                        <img src="img/instagram.svg" alt="Instagram">
+                    </a>
+                    <a href="https://www.tiktok.com/@yoyuu_art" target="_blank">
+                        <img src="img/tiktok.svg" alt="TikTok">
+                    </a>
+                    <a href="https://youtube.com/@yoyuu_art" target="_blank">
+                        <img src="img/youtubeshorts.svg" alt="YouTube">
+                    </a>
+                    <a href="https://www.threads.com/@yoyuu_art" target="_blank">
+                        <img src="img/threads.svg" alt="Threads">
+                    </a>
+                    <a href="https://line.me/R/ti/p/@316pwugp" target="_blank">
+                        <img src="img/line.svg" alt="line">
                     </a>
                 </div>
-                <a class="link-card" href="https://store.line.me/stickershop/author/1752248/ja" target="_blank"
-                    rel="noopener noreferrer" aria-label="LINEスタンプと絵文字一覧">
-                    <div class="thumb">
-                        <img src="img/036.png?auto=format&fit=crop&w=400&q=80" alt="LINE stickers" loading="lazy" />
-                    </div>
-                    <div class="content">
-                        <div class="label-row">
-                            <span class="tag">LINE stickers & Emojis</span>
+            </section>
+        </main>
+    </div>
+
+    <div class="pink-area">
+        <main class="wrap">
+            <section class="section" aria-labelledby="main-links-title">
+                <h2 class="section-title" id="main-links-title">Main Links</h2>
+
+                <div class="link-list">
+                    <a class="link-card" href="https://yoyuu-official.stores.jp" target="_blank" rel="noopener noreferrer"
+                        aria-label="STORES イラストショップ">
+                        <div class="thumb">
+                            <img src="img/011.png?auto=format&fit=crop&w=400&q=80" alt="STORES" loading="lazy" />
                         </div>
-                        <p class="title">LINEスタンプ・絵文字一覧</p>
-                        <p class="desc">
-                            <!-- スタンプと絵文字をまとめて見る -->
-                            <span class="en">Browse all LINE stickers and emojis.</span>
-                        </p>
-                    </div>
-                    <div class="arrow" aria-hidden="true">↗</div>
-                </a>
-
-                <a class="link-card" href="https://store.line.me/themeshop/author/3048079/ja" target="_blank"
-                    rel="noopener noreferrer" aria-label="LINE着せ替え一覧">
-                    <div class="thumb">
-                        <img src="img/038 (2).png?auto=format&fit=crop&w=400&q=80" alt="LINE themes" loading="lazy" />
-                    </div>
-                    <div class="content">
-                        <div class="label-row">
-                            <span class="tag">LINE Themes</span>
+                        <div class="content">
+                            <div class="label-row">
+                                <span class="tag">Shop</span>
+                            </div>
+                            <p class="title">STORES イラストショップ</p>
+                            <p class="desc">
+                                コンビニでも印刷できるイラストを販売
+                            </p>
                         </div>
-                        <p class="title">LINE着せ替え一覧</p>
-                        <p class="desc">
-                            <!-- 着せ替えをまとめて見る -->
-                            <span class="en">Browse all LINE themes.</span>
-                        </p>
-                    </div>
-                    <div class="arrow" aria-hidden="true">↗</div>
-                </a>
+                        <div class="arrow" aria-hidden="true">↗</div>
+                    </a>
 
-                <a class="link-card" href="https://suzuri.jp/YOYUU" target="_blank" rel="noopener noreferrer"
-                    aria-label="SUZURI">
-                    <div class="thumb">
-                        <img src="img/028.png?auto=format&fit=crop&w=400&q=80" alt="SUZURI" loading="lazy" />
-                    </div>
-                    <div class="content">
-                        <div class="label-row">
-                            <span class="tag">Goods</span>
+                    <a class="link-card" href="https://yoyuu-official.stores.jp/?category_id=69742d29c49f18a5f41cb74d"
+                        target="_blank" rel="noopener noreferrer" aria-label="ORDER">
+                        <div class="thumb">
+                            <img src="img/001 (3).png?auto=format&fit=crop&w=400&q=80" alt="ORDER" loading="lazy" />
                         </div>
-                        <p class="title">SUZURI グッズ</p>
-                        <p class="desc">
-                            
-                            <span class="en">Shop goods and printed items.</span>
-                        </p>
-                    </div>
-                    <div class="arrow" aria-hidden="true">↗</div>
-                </a>
-
-                <!-- <a class="link-card" href="https://note.com/yoyuu_art" target="_blank" rel="noopener noreferrer"
-                    aria-label="note">
-                    <div class="thumb">
-                        <img src="img/001 (2).png?auto=format&fit=crop&w=400&q=80" alt="note" loading="lazy" />
-                    </div>
-                    <div class="content">
-                        <div class="label-row">
-                            <span class="tag">note</span>
+                        <div class="content">
+                            <div class="label-row">
+                                <span class="tag">Shop</span><span class="tag">Order</span>
+                            </div>
+                            <p class="title">STORES オーダーメニュー</p>
+                            <p class="desc">
+                                オーダーの一例です。下記のリンクのLINEまたはSNSのDMからご相談ください。
+                            </p>
                         </div>
-                        <p class="title">note</p>
-                        <p class="desc">
-                            お知らせや記録
-                            <span class="en">Notes, updates, and stories.</span>
-                        </p>
+                        <div class="arrow" aria-hidden="true">↗</div>
+                    </a>
+
+                    <div class="line-cta">
+                        <a href="https://line.me/R/ti/p/@316pwugp" target="_blank" rel="noopener noreferrer">
+                            〉〉　公式LINEからご相談
+                        </a>
                     </div>
-                    <div class="arrow" aria-hidden="true">↗</div>
-                </a> -->
 
+                    <a class="link-card" href="https://store.line.me/stickershop/author/1752248/ja" target="_blank"
+                        rel="noopener noreferrer" aria-label="LINEスタンプと絵文字一覧">
+                        <div class="thumb">
+                            <img src="img/036.png?auto=format&fit=crop&w=400&q=80" alt="LINE stickers" loading="lazy" />
+                        </div>
+                        <div class="content">
+                            <div class="label-row">
+                                <span class="tag">LINE stickers & Emojis</span>
+                            </div>
+                            <p class="title">LINEスタンプ・絵文字一覧</p>
+                            <p class="desc">
+                                <span class="en">Browse all LINE stickers and emojis.</span>
+                            </p>
+                        </div>
+                        <div class="arrow" aria-hidden="true">↗</div>
+                    </a>
 
-            </div>
-        </section>
+                    <a class="link-card" href="https://store.line.me/themeshop/author/3048079/ja" target="_blank"
+                        rel="noopener noreferrer" aria-label="LINE着せ替え一覧">
+                        <div class="thumb">
+                            <img src="img/038 (2).png?auto=format&fit=crop&w=400&q=80" alt="LINE themes" loading="lazy" />
+                        </div>
+                        <div class="content">
+                            <div class="label-row">
+                                <span class="tag">LINE Themes</span>
+                            </div>
+                            <p class="title">LINE着せ替え一覧</p>
+                            <p class="desc">
+                                <span class="en">Browse all LINE themes.</span>
+                            </p>
+                        </div>
+                        <div class="arrow" aria-hidden="true">↗</div>
+                    </a>
 
-        <section class="news-window" aria-labelledby="news-window-title">
-            <div class="news-window-head">
-                <h2 id="news-window-title">NEWS</h2>
-                <a href="news.html" target="_blank" rel="noopener noreferrer">All news ↗</a>
-            </div>
+                    <a class="link-card" href="https://suzuri.jp/YOYUU" target="_blank" rel="noopener noreferrer"
+                        aria-label="SUZURI">
+                        <div class="thumb">
+                            <img src="img/028.png?auto=format&fit=crop&w=400&q=80" alt="SUZURI" loading="lazy" />
+                        </div>
+                        <div class="content">
+                            <div class="label-row">
+                                <span class="tag">Goods</span>
+                            </div>
+                            <p class="title">SUZURI グッズ</p>
+                            <p class="desc">
+                                <span class="en">Shop goods and printed items.</span>
+                            </p>
+                        </div>
+                        <div class="arrow" aria-hidden="true">↗</div>
+                    </a>
+                </div>
+            </section>
 
-            <div id="news-list" class="news-list">
-                <p class="news-empty">Loading updates...</p>
-            </div>
-        </section>
+            <section class="news-window" aria-labelledby="news-window-title">
+                <div class="news-window-head">
+                    <h2 id="news-window-title">NEWS</h2>
+                    <a href="news.html" target="_blank" rel="noopener noreferrer">All news ↗</a>
+                </div>
 
-
-    </main>
-
-
+                <div id="news-list" class="news-list">
+                    <p class="news-empty">Loading updates...</p>
+                </div>
+            </section>
+        </main>
+    </div>
 
     <div class="yellow-area">
-
         <div class="center-image center-image-1">
             <img src="img/28.png" alt="ゴロゴロ猫">
         </div>
-
 
         <main class="wrap">
             <section class="section" aria-labelledby="social-title">
@@ -935,46 +888,12 @@
                 </div>
             </section>
 
-            <style>
-                .wave-line {
-                    display: flex;
-                    justify-content: center;
-                    margin: 32px 0 8px;
-                    stroke: rgba(255, 0, 225, 0.7);
-                }
-
-                .wave-line svg {
-                    width: 500px;
-                    max-width: 60%;
-                    height: 40px;
-
-                }
-
-                .wave-line svg {
-                    animation: waveMove 6s ease-in-out infinite;
-                }
-
-                @keyframes waveMove {
-                    0% {
-                        transform: translateX(0);
-                    }
-
-                    50% {
-                        transform: translateX(10px);
-                    }
-
-                    100% {
-                        transform: translateX(0);
-                    }
-                }
-            </style>
             <div class="wave-line">
                 <svg viewBox="0 0 500 40">
                     <path d="M0 20 Q25 0 50 20 T100 20 T150 20 T200 20 T250 20 T300 20 T350 20 T400 20 T450 20 T500 20"
                         fill="none" stroke-width="11" stroke-linecap="round" />
                 </svg>
             </div>
-
 
             <section class="contact-box" aria-labelledby="contact-title">
                 <h2 id="contact-title" class="contact-title">
@@ -1006,7 +925,6 @@
                 </div>
             </section>
 
-            <!-- ★ここ追加 -->
             <div class="center-image center-image-2">
                 <img src="img/002.png" alt="">
             </div>
@@ -1039,8 +957,6 @@
                 behavior: "smooth"
             });
         });
-
-        // NEWS用
 
         const SHEET_CSV_URL = "https://docs.google.com/spreadsheets/d/1RYo2Wf_bozF6laFHHtNEdJCZnl5IWYRMdZYqeSY6tXM/export?format=csv&gid=0";
 
@@ -1158,13 +1074,10 @@
                 const newsList = document.getElementById("news-list");
                 newsList.innerHTML = `<p class="news-empty">Latest updates coming soon</p>`;
             });
-
     </script>
 
-
-    <!-- Cloudflare Web Analytics -->
     <script defer src='https://static.cloudflareinsights.com/beacon.min.js'
-        data-cf-beacon='{"token": "d29c0972a92b43108f58428b2169b890"}'></script><!-- End Cloudflare Web Analytics -->
+        data-cf-beacon='{"token": "d29c0972a92b43108f58428b2169b890"}'></script>
 </body>
 
 </html>
