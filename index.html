@@ -546,7 +546,7 @@
         }
 
         .news-item:hover .news-title {
-            text-decoration-color: #0051ff;
+            text-decoration-color: var(--accent-deep);
         }
 
         .news-title::after {
@@ -568,6 +568,26 @@
             font-size: 12px;
             color: var(--subtext);
             line-height: 1.6;
+        }
+
+        .news-more-btn {
+            display: block;
+            width: fit-content;
+            margin: 16px auto 0;
+            padding: 10px 18px;
+            border-radius: 999px;
+            background: #f8eeea;
+            border: 1px solid #eb9b96;
+            color: var(--accent-deep);
+            font-size: 13px;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+
+        .news-more-btn:hover {
+            transform: translateY(-1px);
+            border-color: #ff7a00;
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
         }
 
         .news-image {
@@ -869,6 +889,9 @@
                 <div id="news-list" class="news-list">
                     <p class="news-empty">Loading updates...</p>
                 </div>
+                <a href="news.html" class="news-more-btn">
+                    View More News →
+                </a>
             </section>
         </main>
     </div>
@@ -1086,7 +1109,7 @@
 
                 const visibleItems = items
                     .filter(item => item.date || item.title || item.text || item.url || item.image)
-                    .slice(0, 2);
+                    .slice(0, 3);
 
                 if (!visibleItems.length) {
                     newsList.innerHTML = `<p class="news-empty">Latest updates coming soon</p>`;
