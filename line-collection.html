@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YOYUU LINE COLLECTION</title>
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #333333;
+      --sub: #8a8a8a;
+      --line: #e5e5e5;
+      --soft: #f5f5f5;
+    }
+
+    * {
+      box-sizing: border-box
+    }
+
+    html {
+      scroll-behavior: smooth
+    }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Hiragino Kaku Gothic ProN", "Yu Gothic", Meiryo, sans-serif;
+      color: var(--text);
+      background: var(--bg);
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none
+    }
+
+    button {
+      font: inherit
+    }
+
+    .wrap {
+      width: min(760px, 100%);
+      margin: 0 auto;
+      padding: 30px 18px 72px;
+    }
+
+    .back {
+      display: inline-block;
+      margin-bottom: 28px;
+      font-size: 11px;
+      color: var(--sub);
+    }
+
+    .hero {
+      margin-bottom: 24px;
+    }
+
+    .eyebrow {
+      margin: 0 0 6px;
+      font-size: 9px;
+      letter-spacing: .16em;
+      color: var(--sub);
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 28px;
+      line-height: 1.15;
+      letter-spacing: .01em;
+      font-weight: 650;
+    }
+
+    .hero-sub {
+      margin: 10px 0 0;
+      font-size: 11px;
+      color: var(--sub);
+      line-height: 1.8;
+    }
+
+    /* icon tabs */
+    .series-tabs-wrap {
+      margin: 22px 0 30px;
+    }
+
+    .series-tabs {
+      display: flex;
+      gap: 14px;
+      overflow-x: auto;
+      padding: 2px 1px 8px;
+      scrollbar-width: none;
+    }
+
+    .series-tabs::-webkit-scrollbar {
+      display: none
+    }
+
+    .series-tab {
+      flex: 0 0 auto;
+      width: 66px;
+      border: 0;
+      background: transparent;
+      padding: 0;
+      cursor: pointer;
+      color: var(--sub);
+      text-align: center;
+    }
+
+    .series-tab-icon {
+      width: 58px;
+      height: 58px;
+      margin: 0 auto 6px;
+      border: 1px solid var(--line);
+      border-radius: 50%;
+      background: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      transition: .18s ease;
+    }
+
+    .series-tab-icon img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      border-radius: 50%;
+    }
+
+    .series-tab span {
+      display: block;
+      font-size: 9px;
+      line-height: 1.35;
+      white-space: nowrap;
+    }
+
+    .series-tab.active {
+      color: var(--text);
+    }
+
+    .series-tab.active .series-tab-icon {
+      border-color: #309bed;
+      /* background: var(--soft); */
+    }
+
+    .series-tab:hover .series-tab-icon {
+      transform: translateY(-1px);
+    }
+
+    /* title area - no card */
+    .series-intro {
+      padding: 0 0 24px;
+      border-bottom: 1px solid var(--line);
+      margin-bottom: 30px;
+    }
+
+    .series-en {
+      margin: 0;
+      font-size: 9px;
+      letter-spacing: .15em;
+      color: var(--sub);
+    }
+
+    .series-title {
+      margin: 5px 0 0;
+      font-size: 25px;
+      font-weight: 650;
+      line-height: 1.25;
+    }
+
+    .series-desc-ja {
+      margin: 14px 0 0;
+      font-size: 12px;
+      line-height: 1.9;
+    }
+
+    .series-desc-en {
+      margin: 7px 0 0;
+      font-size: 11px;
+      line-height: 1.8;
+      color: var(--sub);
+    }
+
+    .series-preview {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 17px;
+      overflow-x: auto;
+      padding-bottom: 2px;
+      scrollbar-width: none;
+    }
+
+    .series-preview::-webkit-scrollbar {
+      display: none
+    }
+
+    .series-preview span {
+      flex: 0 0 auto;
+      width: 42px;
+      height: 42px;
+    }
+
+    .series-preview span img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+
+
+    /* blog-like sections */
+    .product-section {
+      margin-top: 34px;
+    }
+
+    .section-title {
+      margin: 0 0 14px;
+      font-size: 15px;
+      font-weight: 650;
+      letter-spacing: .04em;
+    }
+
+    .section-title span {
+      margin-left: 8px;
+      font-size: 9px;
+      color: var(--sub);
+      font-weight: 400;
+      letter-spacing: 0;
+    }
+
+    .product-list {
+      display: grid;
+      gap: 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .product {
+      display: grid;
+      grid-template-columns: 92px minmax(0, 1fr) auto;
+      gap: 14px;
+      align-items: center;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+      padding: 8px;
+    }
+
+    .thumb {
+      width: 92px;
+      aspect-ratio: 1 / 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .product-main {
+      min-width: 0;
+    }
+
+    .product-name {
+      margin: 0;
+      font-size: 12px;
+      font-weight: 600;
+      line-height: 1.5;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      margin-top: 7px;
+    }
+
+    .tag {
+      padding: 3px 6px;
+      border-radius: 999px;
+      background: var(--soft);
+      color: #6f6f6f;
+      font-size: 8px;
+    }
+
+    .product-link {
+      font-size: 16px;
+      color: #9a9a9a;
+      padding-left: 4px;
+    }
+
+    .empty {
+      padding: 15px 0;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      color: var(--sub);
+      font-size: 11px;
+    }
+
+    .bottom-nav {
+      margin-top: 52px;
+      padding-top: 24px;
+      border-top: 1px solid var(--line);
+    }
+
+    .bottom-nav-label {
+      margin: 0 0 12px;
+      font-size: 9px;
+      letter-spacing: .12em;
+      color: var(--sub);
+    }
+
+    .bottom-nav-links {
+      display: grid;
+      gap: 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .bottom-nav-link {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 15px 2px;
+      border-bottom: 1px solid var(--line);
+      font-size: 12px;
+    }
+
+    .bottom-nav-link small {
+      display: block;
+      margin-top: 3px;
+      font-size: 9px;
+      color: var(--sub);
+      font-weight: 400;
+    }
+
+    .bottom-nav-link .arrow {
+      color: #999;
+      font-size: 15px;
+    }
+
+    .footer-note {
+      margin-top: 30px;
+      padding-top: 18px;
+      border-top: 1px solid var(--line);
+      font-size: 9px;
+      color: var(--sub);
+      line-height: 1.8;
+    }
+
+    /* mobile: one row per product */
+    @media (max-width:560px) {
+      .wrap {
+        padding: 26px 16px 64px;
+      }
+
+      h1 {
+        font-size: 25px;
+      }
+
+      .series-tabs {
+        gap: 12px;
+      }
+
+      .series-tab {
+        width: 61px;
+      }
+
+      .series-tab-icon {
+        width: 54px;
+        height: 54px;
+        font-size: 26px;
+      }
+
+      .series-title {
+        font-size: 23px;
+      }
+
+      .product {
+        grid-template-columns: 78px minmax(0, 1fr) auto;
+        gap: 12px;
+        padding: 13px 0;
+      }
+
+      .thumb {
+        width: 78px;
+        border-radius: 9px;
+      }
+
+      .product-name {
+        font-size: 11px;
+      }
+    }
+
+    @media (min-width:680px) {
+      .wrap {
+        padding-top: 44px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="wrap">
+    <a class="back" href="index.html">← Back to YOYUU</a>
+
+    <section class="hero">
+      <p class="eyebrow">YOYUU</p>
+      <h1>LINE COLLECTION</h1>
+      <p class="hero-sub">
+        スタンプ・絵文字・着せ替えを、シリーズごとにまとめています。<br>
+        Explore YOYUU's LINE stickers, emoji and themes by series.
+      </p>
+    </section>
+
+    <div class="series-tabs-wrap">
+      <div class="series-tabs" id="seriesTabs" aria-label="シリーズ切り替え"></div>
+    </div>
+
+    <section id="seriesContent"></section>
+
+    <nav class="bottom-nav" aria-label="ページ下部ナビゲーション">
+      <p class="bottom-nav-label">MORE</p>
+
+      <div class="bottom-nav-links">
+        <a class="bottom-nav-link" href="index.html">
+          <span>
+            YOYUU
+            <small>YOYUUトップページへ戻る</small>
+          </span>
+          <span class="arrow">←</span>
+        </a>
+
+        <a class="bottom-nav-link" href="#stickers">
+          <span>
+            STICKERS & EMOJI
+            <small>スタンプ・絵文字を見る</small>
+          </span>
+          <span class="arrow">↓</span>
+        </a>
+
+        <a class="bottom-nav-link" href="#themes">
+          <span>
+            LINE THEMES
+            <small>着せ替えを見る</small>
+          </span>
+          <span class="arrow">↓</span>
+        </a>
+      </div>
+    </nav>
+
+    <p class="footer-note">
+      ©YOYUU
+    </p>
+  </main>
+
+  <script>
+    const SERIES = {
+      "colorful-dogs": {
+        tab: "カラフルいっぬ",
+        en: "COLORFUL DOGS",
+        title: "カラフルいっぬ",
+        tabIcon: "img/line/colorful-dogs/emj-main.png",
+        ja: "カラフルで優しい犬たち。",
+        descEn: "A playful dog series featuring many different breeds.",
+        preview: [
+          "img/line/colorful-dogs/001.png",
+          "img/line/colorful-dogs/016.png",
+          "img/line/colorful-dogs/025.png",
+          "img/line/colorful-dogs/026.png",
+          "img/line/colorful-dogs/028.png"],
+        stickers: [
+          {
+            name: "カラフルいっぬたちのスタンプ(優しい日常)",
+            icon: "img/line/colorful-dogs/st-jp-main.png",
+            tags: ["Japanese"],
+            url: "https://line.me/S/sticker/35203722"
+          },
+          {
+            name: "My Colorful Dogs Stickers (English)",
+            icon: "img/line/colorful-dogs/st-eg-main.png",
+            tags: ["English"],
+            url: "https://line.me/S/sticker/35203810"
+          },
+
+        ],
+        emoji: [
+          {
+            name: "My Colorful Dogs Emojis",
+            icon: "img/line/colorful-dogs/emj-main.png",
+            tags: ["♡"],
+            url: "https://line.me/S/emoji/?id=6a50ae6fbfc6ef757e55a110"
+          },
+
+        ],
+        themes: [
+          {
+            name: "カラフルいっぬ Theme",
+            icon: "img/line/colorful-dogs/store_thumbnail.png",
+            tags: ["シンプルでかわいい"],
+            url: "https://line.me/S/shop/theme/detail?id=6e3f1584-2c31-4da6-a87d-188ff2e22a97"
+          }
+        ]
+      },
+
+      "colorful-cats": {
+        tab: "カラフルねっこ",
+        en: "COLORFUL CATS",
+        title: "カラフルねっこ",
+
+        tabIcon: "img/line/colorful-cats/emj-main.png",
+
+        ja: "カラフルでパワフルな猫たち。",
+        descEn: "",
+
+        preview: [
+          "img/line/colorful-cats/002.png",
+          "img/line/colorful-cats/020.png",
+          "img/line/colorful-cats/021.png",
+          "img/line/colorful-cats/036.png",
+          "img/line/colorful-cats/040.png"
+        ],
+
+        stickers: [
+          {
+            name: "カラフルねっこたちのスタンプ（ゆる日常）",
+            icon: "img/line/colorful-cats/st-jp-main.png",
+            tags: ["Japanese"],
+            url: "https://line.me/S/sticker/34670999"
+          },
+          {
+            name: "My Colorful Cats (English)",
+            icon: "img/line/colorful-cats/st-en-main.png",
+            tags: ["English"],
+            url: "https://line.me/S/sticker/35517839"
+          }
+        ],
+
+        emoji: [
+          {
+            name: "My Colorful Cats Emojis",
+            icon: "img/line/colorful-cats/emj-main.png",
+            tags: ["(=^・・^=)"],
+            url: "https://line.me/S/emoji/?id=6a2f6c0becd6623f20a9022f"
+          }
+        ],
+
+        themes: [
+          {
+            name: "My Colorful Cats Theme",
+            icon: "img/line/colorful-cats/store_thumbnail.png",
+            tags: ["LINE Theme"],
+            url: "https://line.me/S/shop/theme/detail?id=0121cb54-acc3-4828-8b6d-d72ec0c72f75"
+          }
+        ]
+      },
+
+
+    };
+
+    const tabs = document.getElementById("seriesTabs");
+    const content = document.getElementById("seriesContent");
+
+    function productRow(item) {
+      return `
+    <a class="product" href="${item.url}" target="_blank" rel="noopener noreferrer">
+     <div class="thumb">
+    <img src="${item.icon}" alt="${item.name}">
+</div>
+      <div class="product-main">
+        <p class="product-name">${item.name}</p>
+        <div class="tags">
+          ${item.tags.map(tag => `<span class="tag">${tag}</span>`).join("")}
+        </div>
+      </div>
+      <span class="product-link">↗</span>
+    </a>
+  `;
+    }
+
+    function section(title, ja, items) {
+      const sectionId = title.toLowerCase();
+      return `
+    <section class="product-section" id="${sectionId}">
+      <h2 class="section-title">${title}<span>${ja}</span></h2>
+      ${items && items.length
+          ? `<div class="product-list">${items.map(productRow).join("")}</div>`
+          : `<div class="empty">Coming soon.</div>`
+        }
+    </section>
+  `;
+    }
+
+    function renderSeries(key, updateUrl = true) {
+      const data = SERIES[key] || SERIES["colorful-dogs"];
+
+      [...tabs.children].forEach(btn => {
+        btn.classList.toggle("active", btn.dataset.series === key);
+      });
+
+      content.innerHTML = `
+    <article class="series-intro">
+      <p class="series-en">${data.en}</p>
+      <h2 class="series-title">${data.title}</h2>
+      <p class="series-desc-ja">${data.ja}</p>
+      <p class="series-desc-en">${data.descEn}</p>
+      ${data.preview ? `
+        <div class="series-preview" aria-label="${data.title} preview">
+        ${data.preview.map((item, index) => `
+    <span>
+        <img src="${item}" alt="${data.title} ${index + 1}">
+    </span>
+`).join("")}
+        </div>
+      ` : ""}
+    </article>
+
+    ${section("STICKERS", "スタンプ", data.stickers)}
+    ${section("EMOJI", "絵文字", data.emoji)}
+    ${section("THEMES", "着せ替え", data.themes)}
+  `;
+
+      if (updateUrl) {
+        const url = new URL(window.location.href);
+        url.searchParams.set("series", key);
+        history.replaceState(null, "", url);
+      }
+    }
+
+    Object.entries(SERIES).forEach(([key, data]) => {
+      const button = document.createElement("button");
+      button.type = "button";
+      button.className = "series-tab";
+      button.dataset.series = key;
+      button.innerHTML = `
+  <div class="series-tab-icon">
+    <img src="${data.tabIcon}" alt="${data.tab}">
+</div>
+    <span>${data.tab}</span>
+  `;
+      button.addEventListener("click", () => renderSeries(key));
+      tabs.appendChild(button);
+    });
+
+    const params = new URLSearchParams(window.location.search);
+    const firstSeries = SERIES[params.get("series")] ? params.get("series") : "colorful-dogs";
+    renderSeries(firstSeries, false);
+  </script>
+</body>
+
+</html>
