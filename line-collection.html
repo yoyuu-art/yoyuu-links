@@ -10,6 +10,13 @@
   <link rel="apple-touch-icon" sizes="180x180" href="img/yoyuu_logo_icon.jpg">
 
   <title>LINE COLLECTION｜YOYUU</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap"
+    rel="stylesheet">
+
+
   <style>
     :root {
       --bg: #ffffff;
@@ -17,6 +24,7 @@
       --sub: #8a8a8a;
       --line: #e5e5e5;
       --soft: #f5f5f5;
+      --accent: #14b6d7;
     }
 
     * {
@@ -29,9 +37,10 @@
 
     body {
       margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Hiragino Kaku Gothic ProN", "Yu Gothic", Meiryo, sans-serif;
+      /* font-family: -apple-system, BlinkMacSystemFont, "Hiragino Kaku Gothic ProN", "Yu Gothic", Meiryo, sans-serif; */
       color: var(--text);
       background: #efefef;
+      font-family: "Zen Kaku Gothic New", sans-serif;
     }
 
 
@@ -80,8 +89,10 @@
       margin: 0;
       font-size: 28px;
       line-height: 1.15;
-      letter-spacing: .01em;
+      letter-spacing: .06em;
       font-weight: 650;
+      color: var(--accent);
+      font-family: Futura, "Century Gothic", sans-serif;
     }
 
     .hero-sub {
@@ -153,7 +164,7 @@
     }
 
     .series-tab.active .series-tab-icon {
-      border-color: #ed3062;
+      border-color: var(--accent);
       /* background: var(--soft); */
     }
 
@@ -267,7 +278,7 @@
     }
 
     .thumb {
-      width: 92px;
+      width: 100px;
       aspect-ratio: 1 / 1;
       display: flex;
       align-items: center;
@@ -383,12 +394,12 @@
       }
 
       .series-tab {
-        width: 61px;
+        width: 70px;
       }
 
       .series-tab-icon {
-        width: 54px;
-        height: 54px;
+        width: 65px;
+        height: 65px;
         font-size: 26px;
       }
 
@@ -397,13 +408,13 @@
       }
 
       .product {
-        grid-template-columns: 78px minmax(0, 1fr) auto;
+        grid-template-columns: 90px minmax(0, 1fr) auto;
         gap: 12px;
         padding: 13px 0;
       }
 
       .thumb {
-        width: 78px;
+        width: 90px;
         border-radius: 9px;
       }
 
@@ -518,7 +529,7 @@
           {
             name: "カラフルいっぬ Theme",
             icon: "img/line/colorful-dogs/store_thumbnail.png",
-            tags: ["シンプルでかわいい"],
+            tags: ["シンプル"],
             url: "https://line.me/S/shop/theme/detail?id=6e3f1584-2c31-4da6-a87d-188ff2e22a97"
           }
         ]
@@ -570,7 +581,7 @@
           {
             name: "My Colorful Cats Theme",
             icon: "img/line/colorful-cats/store_thumbnail.png",
-            tags: ["LINE Theme"],
+            tags: ["KAWAII"],
             url: "https://line.me/S/shop/theme/detail?id=0121cb54-acc3-4828-8b6d-d72ec0c72f75"
           }
         ]
