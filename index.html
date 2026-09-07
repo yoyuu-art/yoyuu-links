@@ -511,7 +511,30 @@
         .news-list {
             display: grid;
             gap: 0;
+
+            max-height: 430px;
+            overflow-y: auto;
+            padding-right: 8px;
+
+            overscroll-behavior: contain;
+            -webkit-overflow-scrolling: touch;
         }
+
+        /* スクロールバー */
+        .news-list::-webkit-scrollbar {
+            width: 5px;
+        }
+
+        .news-list::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        .news-list::-webkit-scrollbar-thumb {
+            background: #d8d8d8;
+            border-radius: 999px;
+        }
+
+        /* スクロールバー */
 
         .news-item {
             display: block;
@@ -666,6 +689,35 @@
             /* aspect-ratio: 4 / 3; */
             object-fit: cover;
             border-radius: 14px;
+        }
+
+        #pickup-news {
+            display: grid;
+            gap: 0;
+            background: #ffffff;
+            border: 1px solid #484848;
+            border-radius: 22px;
+            box-shadow: var(--shadow);
+            overflow: hidden;
+        }
+
+        #pickup-news .latest-news-item {
+            border: none;
+            border-radius: 0;
+            box-shadow: none;
+            background: transparent;
+        }
+
+        /* 2件目以降に区切り線 */
+        #pickup-news .latest-news-item+.latest-news-item {
+            border-top: 1px solid #e9e9e9;
+        }
+
+        #pickup-news .latest-news-item:hover,
+        #pickup-news .latest-news-item:focus-visible {
+            transform: none;
+            box-shadow: none;
+            background: #fafafa;
         }
 
         @media (max-width: 560px) {
@@ -847,13 +899,174 @@
 
     <div class="pink-area">
         <main class="wrap">
-            <div id="latest-news" class="latest-news">
+
+
+            <!-- <div id="latest-news" class="latest-news">
+                <p class="latest-news-loading">Loading...</p>
+            </div> -->
+
+            <div id="pickup-news" class="latest-news">
                 <p class="latest-news-loading">Loading...</p>
             </div>
+
+
+
+
+
             <section class="section" aria-labelledby="main-links-title">
                 <h2 class="section-title" id="main-links-title">Main Links</h2>
 
                 <div class="link-list">
+
+
+                    <a class="link-card link-card2" href="https://store.line.me/stickershop/author/1752248/ja"
+                        target="_blank" rel="noopener noreferrer" aria-label="LINEスタンプと絵文字一覧">
+                        <div class="thumb">
+                            <img src="img/01.png?auto=format&fit=crop&w=400&q=80" alt="LINE stickers" loading="lazy" />
+                        </div>
+                        <div class="content">
+                            <div class="label-row">
+                                <span class="tag">LINE stickers & Emojis</span>
+                            </div>
+                            <p class="title">LINE Stickers & Emojis</p>
+                            <p class="title">｟ スタンプ・絵文字 ｠</p>
+                            <!-- <p class="desc">
+                                <span class="en">All LINE stickers and emojis</span>
+                            </p> -->
+                        </div>
+                        <div class="arrow" aria-hidden="true">↗</div>
+                    </a>
+
+                    <style>
+                        .theme-pickup {
+                            margin: -2px 0 8px;
+                            padding: 0 4px;
+                            overflow: hidden;
+                            display: none;
+                        }
+
+                        .theme-pickup-head {
+                            display: flex;
+                            align-items: baseline;
+                            gap: 8px;
+                            margin: 0 2px 8px;
+                        }
+
+                        .theme-pickup-head p {
+                            margin: 0;
+                            font-size: 11px;
+                            font-weight: 650;
+                        }
+
+                        .theme-pickup-head span {
+                            font-size: 8px;
+                            color: var(--subtext);
+                            letter-spacing: 0.08em;
+                        }
+
+                        .theme-scroll {
+                            display: flex;
+                            gap: 10px;
+                            overflow-x: auto;
+                            padding: 0 2px 8px;
+                            scroll-snap-type: x proximity;
+                            -webkit-overflow-scrolling: touch;
+                            scrollbar-width: none;
+                        }
+
+                        .theme-scroll::-webkit-scrollbar {
+                            display: none;
+                        }
+
+                        .theme-item {
+                            flex: 0 0 50px;
+                            min-width: 0;
+                            scroll-snap-align: start;
+                        }
+
+                        .theme-item img {
+                            width: 50px;
+                            height: 50px;
+                            object-fit: cover;
+                            border-radius: 14px;
+                            background: #fff;
+                            border: 1px solid var(--line);
+                            transition: transform 0.18s ease;
+                        }
+
+                        .theme-item:hover img {
+                            transform: translateY(-2px);
+                        }
+
+                        .theme-item p {
+                            margin: 5px 1px 0;
+                            font-size: 9px;
+                            line-height: 1.35;
+                            color: var(--subtext);
+                            white-space: nowrap;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+
+                        }
+                    </style>
+
+
+                    <a class="link-card link-card2" href="https://store.line.me/themeshop/author/3048079/ja"
+                        target="_blank" rel="noopener noreferrer" aria-label="LINE着せ替え一覧">
+                        <div class="thumb">
+                            <img src="img/store_thumbnail.png?auto=format&fit=crop&w=400&q=80" alt="LINE themes"
+                                loading="lazy" />
+                        </div>
+                        <div class="content">
+                            <div class="label-row">
+                                <span class="tag">LINE Themes</span>
+                            </div>
+                            <p class="title">LINE Themes 着せ替え</p>
+                            <!-- <p class="desc">
+                                <span class="en">All LINE themes</span>
+                            </p> -->
+                        </div>
+                        <div class="arrow" aria-hidden="true">↗</div>
+                    </a>
+
+
+                    <div class="theme-pickup">
+                        <div class="theme-pickup-head">
+                            <p>おすすめシリーズ</p>
+                            <span>PICK UP SERIES</span>
+                        </div>
+
+                        <div class="theme-scroll">
+
+                            <a class="theme-item" href="ここに商品URL1" target="_blank" rel="noopener noreferrer">
+                                <img src="img/01.png" alt="着せ替え1" loading="lazy">
+                                <p>シュナウザー</p>
+                            </a>
+
+                            <a class="theme-item" href="ここに商品URL2" target="_blank" rel="noopener noreferrer">
+                                <img src="img/01.png" alt="着せ替え2" loading="lazy">
+                                <p>ねっこねっこ</p>
+                            </a>
+
+                            <a class="theme-item" href="ここに商品URL3" target="_blank" rel="noopener noreferrer">
+                                <img src="img/01.png" alt="着せ替え3" loading="lazy">
+                                <p>ヨーキー</p>
+                            </a>
+
+                            <a class="theme-item" href="ここに商品URL4" target="_blank" rel="noopener noreferrer">
+                                <img src="img/01.png" alt="着せ替え4" loading="lazy">
+                                <p>トイプードル</p>
+                            </a>
+
+                            <a class="theme-item" href="ここに商品URL5" target="_blank" rel="noopener noreferrer">
+                                <img src="img/01.png" alt="着せ替え5" loading="lazy">
+                                <p>いっぬいっぬ</p>
+                            </a>
+
+                        </div>
+                    </div>
+
+
                     <a class="link-card" href="https://yoyuu-official.stores.jp" target="_blank"
                         rel="noopener noreferrer" aria-label="STORES イラストショップ">
                         <div class="thumb">
@@ -894,40 +1107,6 @@
                         </a>
                     </div>
 
-                    <a class="link-card link-card2" href="https://store.line.me/stickershop/author/1752248/ja"
-                        target="_blank" rel="noopener noreferrer" aria-label="LINEスタンプと絵文字一覧">
-                        <div class="thumb">
-                            <img src="img/01.png?auto=format&fit=crop&w=400&q=80" alt="LINE stickers" loading="lazy" />
-                        </div>
-                        <div class="content">
-                            <div class="label-row">
-                                <span class="tag">LINE stickers & Emojis</span>
-                            </div>
-                            <p class="title">LINEスタンプ・絵文字一覧</p>
-                            <p class="desc">
-                                <span class="en">All LINE stickers and emojis</span>
-                            </p>
-                        </div>
-                        <div class="arrow" aria-hidden="true">↗</div>
-                    </a>
-
-                    <a class="link-card link-card2" href="https://store.line.me/themeshop/author/3048079/ja"
-                        target="_blank" rel="noopener noreferrer" aria-label="LINE着せ替え一覧">
-                        <div class="thumb">
-                            <img src="img/store_thumbnail.png?auto=format&fit=crop&w=400&q=80" alt="LINE themes"
-                                loading="lazy" />
-                        </div>
-                        <div class="content">
-                            <div class="label-row">
-                                <span class="tag">LINE Themes</span>
-                            </div>
-                            <p class="title">LINE着せ替え一覧</p>
-                            <p class="desc">
-                                <span class="en">All LINE themes</span>
-                            </p>
-                        </div>
-                        <div class="arrow" aria-hidden="true">↗</div>
-                    </a>
 
                     <a class="link-card" href="https://suzuri.jp/YOYUU" target="_blank" rel="noopener noreferrer"
                         aria-label="SUZURI">
@@ -1017,7 +1196,7 @@
                         aria-label="X">
                         <div class="mini-label">SNS <span class="new-label">NEW</span></div>
                         <p class="mini-title">X</p>
-                        <p class="mini-desc">作品やお知らせ</p>
+                        <p class="mini-desc">お知らせや進捗・ラクガキ</p>
                     </a>
                     <a class="mini-card" href="https://youtube.com/@yoyuu_art" target="_blank" rel="noopener noreferrer"
                         aria-label="YouTube">
@@ -1181,7 +1360,7 @@
                     : "";
 
                 const imageHtml = image
-                    ? `<img class="news-image" src="${escapeHtml(image)}" alt="${title}">`
+                    ? `<img class="news-image" src="${escapeHtml(image)}" alt="${title}" loading="lazy">`
                     : "";
 
                 const content = `
@@ -1213,61 +1392,70 @@
                 const items = csvToObjects(csvText);
                 const newsList = document.getElementById("news-list");
 
-                const latestNews = document.getElementById("latest-news");
 
-                const latestItem = items.find(item =>
-                    item.date || item.title || item.text || item.url || item.image
+                const pickupNews = document.getElementById("pickup-news");
+
+
+
+                const pickupItems = items.filter(item =>
+                    (item.pickup || "").trim() === "○"
                 );
 
-                if (latestItem) {
-                    const date = escapeHtml(latestItem.date || "");
-                    const title = escapeHtml(latestItem.title || "");
-                    const text = escapeHtml(latestItem.text || "");
-                    const url = (latestItem.url || "").trim();
+                if (pickupItems.length) {
+                    pickupNews.innerHTML = pickupItems.map((pickupItem, index) => {
+                        const date = escapeHtml(pickupItem.date || "");
+                        const title = escapeHtml(pickupItem.title || "");
+                        const text = escapeHtml(pickupItem.text || "");
+                        const url = (pickupItem.url || "").trim();
 
-                    const rawImage = (latestItem.image || "").trim();
+                        const rawImage = (pickupItem.image || "").trim();
 
-                    const image = rawImage
-                        ? (rawImage.startsWith("http")
-                            ? rawImage
-                            : `https://yoyuu-art.pages.dev/${rawImage.replace(/^\/+/, "")}`)
-                        : "";
+                        const image = rawImage
+                            ? (rawImage.startsWith("http")
+                                ? rawImage
+                                : `https://yoyuu-art.pages.dev/${rawImage.replace(/^\/+/, "")}`)
+                            : "";
 
-                    const imageHtml = image
-                        ? `<img class="latest-news-image" src="${escapeHtml(image)}" alt="${title}">`
-                        : "";
+                        const imageHtml = image
+                            ? `<img class="latest-news-image" src="${escapeHtml(image)}" alt="${title}">`
+                            : "";
 
-                    const latestContent = `
-        <div class="latest-news-content">
-            <p class="latest-news-label">NEW</p>
-            <p class="latest-news-date">${date}</p>
-            <p class="latest-news-title">${title}</p>
-            ${text ? `<p class="latest-news-text">${text}</p>` : ""}
-        </div>
-        ${imageHtml}
-    `;
-
-                    if (url) {
-                        latestNews.innerHTML = `
-            <a class="latest-news-item"
-                href="${escapeHtml(url)}"
-                target="_blank"
-                rel="noopener noreferrer">
-                ${latestContent}
-            </a>
+                        const pickupContent = `
+            <div class="latest-news-content">
+              ${index === 0 ? `<p class="latest-news-label">PICK UP</p>` : ""}
+                <p class="latest-news-date">${date}</p>
+                <p class="latest-news-title">${title}</p>
+                ${text ? `<p class="latest-news-text">${text}</p>` : ""}
+            </div>
+            ${imageHtml}
         `;
-                    } else {
-                        latestNews.innerHTML = `
+
+                        if (url) {
+                            return `
+                <a class="latest-news-item"
+                    href="${escapeHtml(url)}"
+                    target="_blank"
+                    rel="noopener noreferrer">
+                    ${pickupContent}
+                </a>
+            `;
+                        }
+
+                        return `
             <div class="latest-news-item">
-                ${latestContent}
+                ${pickupContent}
             </div>
         `;
-                    }
+                    }).join("");
                 }
+
+
 
                 const visibleItems = items
                     .filter(item => item.date || item.title || item.text || item.url || item.image)
-                    .slice(0, 3);
+                // .slice(0, 10);
+
+
 
                 if (!visibleItems.length) {
                     newsList.innerHTML = `<p class="news-empty">Latest updates coming soon</p>`;
