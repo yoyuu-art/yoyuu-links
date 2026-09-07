@@ -377,6 +377,20 @@
       line-height: 1.8;
     }
 
+    .series-hero {
+      margin-top: 22px;
+      width: 80%;
+      max-width: 250px;
+      /* width: min(100%, 520px); */
+    }
+
+    .series-hero img {
+      width: 100%;
+
+      object-fit: cover;
+      display: block;
+    }
+
 
 
     /* mobile: one row per product */
@@ -494,13 +508,15 @@
         title: "カラフルいっぬ",
         tabIcon: "img/line/colorful-dogs/emj-main.png",
         ja: "カラフルで優しい犬たち。",
-        descEn: "A playful dog series featuring many different breeds.",
+        descEn: "",
+        hero: "https://yoyuu-art.pages.dev/img/newsimg/202607_emojici.JPG",
         preview: [
           "img/line/colorful-dogs/001.png",
           "img/line/colorful-dogs/016.png",
           "img/line/colorful-dogs/025.png",
           "img/line/colorful-dogs/026.png",
           "img/line/colorful-dogs/028.png"],
+
         stickers: [
           {
             name: "カラフルいっぬたちのスタンプ(優しい日常)",
@@ -561,6 +577,8 @@
           "img/line/colorful-cats/036.png",
           "img/line/colorful-cats/040.png"
         ],
+
+        hero: "https://yoyuu-art.pages.dev/img/newsimg/202606_emjcn.JPG",
 
         stickers: [
           {
@@ -650,10 +668,19 @@
 
       content.innerHTML = `
     <article class="series-intro">
+      
       <p class="series-en">${data.en}</p>
+      
       <h2 class="series-title">${data.title}</h2>
+       ${data.hero ? `
+  <div class="series-hero">
+    <img src="${data.hero}" alt="${data.title}">
+  </div>
+` : ""}
       <p class="series-desc-ja">${data.ja}</p>
       <p class="series-desc-en">${data.descEn}</p>
+
+     
       ${data.preview ? `
         <div class="series-preview" aria-label="${data.title} preview">
         ${data.preview.map((item, index) => `
